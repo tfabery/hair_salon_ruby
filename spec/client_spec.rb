@@ -44,4 +44,29 @@ describe 'Client' do
       expect(Client.find_by_id(test_client.id)).to eq(test_client)
     end
   end
+
+  describe '#update' do
+    it "updates client's name in clients table" do
+      test_client = Client.new {name: 'Test'}
+      test_client.save
+      test_client.update {name: 'Pass'}
+      expect(Client.all.first.name).to eq('Pass')
+    end
+
+    it "updates client's hair_stylist_id in clients table" do
+      test_client = Client.new {name: 'Test'}
+      test_client.save
+      test_client.update {hair_stylist_id: 1}
+      expect(Client.find_by_hair_stylist_id(1)).to eq([test_client])
+    end
+  end
+
+  describe '.find_by_hair_stylist_id' do
+    it "returns clients that has inputted hair_stylist_id" do
+      test_client = Client.new {name: 'Test'}
+      test_client.save
+      DB.exec("UPDATE clients SET hair_stylist_id = 1 WHERE id = #{test_client.id};")
+      expect(Client.find_by_hair_stylist_id(1)).to eq(test_client)
+    end
+  end
 end
