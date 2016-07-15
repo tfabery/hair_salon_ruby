@@ -1,0 +1,25 @@
+<h2><%= @client.name %></h2>
+<% if @stylist %>
+  <%= @stylist.name %>
+<% else %>
+  <form action="/client/<%= @client.id %>" method="post">
+    <label for="stylist">Choose a stylist:</label>
+    <select class="stylist" name="stylist">
+      <% @stylists.each do |stylist| %>
+        <option value="<%= stylist.id %>"><%= stylist.name %></option>
+      <% end %>
+    </select>
+    <button type="submit" name="assign">Assign</button>
+  </form>
+<% end %>
+<form action="/clients" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="id" value="<%= @client.id %>">
+  <label for="name">New Name:</label>
+  <input type="text" name="name" value="">
+  <button type="submit" name="edit">Edit</button>
+</form>
+
+<div class="btn-group" role="group">
+  <a href="/" class="btn btn-default active" role="button">Home</a>
+</div>

@@ -3,7 +3,12 @@
 <ul>
   <% @stylists.each do |stylist| %>
     <li>
-      <%= stylist.name %>
+      <a href="/stylist/<%= stylist.id %>/edit" id="stylist_edit"><%= stylist.name %></a>
+      <form action="/stylists" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="id" value="<%= stylist.id %>">
+        <button type="submit" id="stylist_delete"><span class="glyphicon glyphicon-remove"></span></button>
+      </form>
     </li>
   <% end %>
 </ul>
@@ -14,7 +19,12 @@
 <ul>
   <% @clients.each do |client| %>
     <li>
-      <%= client.name %>
+      <a href="/client/<%= client.id %>/edit" id="client_edit"><%= client.name %></a>
+      <form action="/clients" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="id" value="<%= client.id %>">
+        <button type="submit" id="client_delete"><span class="glyphicon glyphicon-remove"></span></button>
+      </form>
     </li>
   <% end %>
 </ul>

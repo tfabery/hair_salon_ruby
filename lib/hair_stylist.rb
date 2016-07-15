@@ -37,8 +37,10 @@ class Hair_stylist
 
   def Hair_stylist.find_by_id (id)
     result = DB.exec("SELECT * FROM hair_stylists WHERE id = #{id}").first
-    name = result['name']
-    id = result['id'].to_i
-    Hair_stylist.new({name: name, id: id})
+    if result
+      name = result['name']
+      id = result['id'].to_i
+      Hair_stylist.new({name: name, id: id})
+    end
   end
 end

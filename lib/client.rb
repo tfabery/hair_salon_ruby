@@ -57,4 +57,8 @@ class Client
     end
     clients
   end
+
+  def stylist
+  DB.exec("SELECT * FROM clients WHERE id = #{@id.to_i}").first['hair_stylist_id'].to_i
+  end
 end

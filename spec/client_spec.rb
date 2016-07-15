@@ -52,7 +52,7 @@ describe 'Client' do
       test_client.update({name: 'Pass'})
       expect(Client.all.first.name).to eq('Pass')
     end
-    
+
     it "updates client's hair_stylist_id in clients table" do
       test_client = Client.new({name: 'Test'})
       test_client.save
@@ -76,6 +76,15 @@ describe 'Client' do
       test_client.save
       DB.exec("UPDATE clients SET hair_stylist_id = 1 WHERE id = #{test_client.id};")
       expect(Client.find_by_hair_stylist_id(1)).to eq([test_client])
+    end
+  end
+
+  describe '#stylist' do
+    it "returns client's hair_stylist_id from clients table" do
+      test_client = Client.new({name: 'Test'})
+      test_client.save
+      DB.exec("UPDATE clients SET hair_stylist_id = 1 WHERE id = #{test_client.id};")
+      expect(test_client.stylist).to eq(1)
     end
   end
 end

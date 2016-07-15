@@ -1,0 +1,12 @@
+<h2><%= @stylist.name %></h2>
+<form action="/stylists" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="id" value="<%= @stylist.id %>">
+  <label for="name">New Name:</label>
+  <input type="text" name="name" value="">
+  <button type="submit" name="edit">Edit</button>
+</form>
+
+<div class="btn-group" role="group">
+  <a href="/" class="btn btn-default active" role="button">Home</a>
+</div>
