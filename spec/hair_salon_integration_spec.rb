@@ -16,4 +16,10 @@ describe('the root path', {type: :feature}) do
     click_link("Add a Hair Stylist")
     expect(page).to have_content("Name")
   end
+
+  it('renders the new Client form') do
+    visit('/')
+    click_link("Add a Client")
+    expect(page).to have_content("Name")
+  end
 end

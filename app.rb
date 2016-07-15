@@ -17,6 +17,10 @@ get '/stylists/new' do
   erb(:hair_stylist_form)
 end
 
+get '/clients/new' do
+  erb(:client_form)
+end
+
 post '/stylists' do
 
 end
