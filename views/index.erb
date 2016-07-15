@@ -1,0 +1,29 @@
+<% if @stylists.any? %>
+<h2>Stylists</h2>
+<ul>
+  <% @stylists.each do |stylist| %>
+    <li>
+      <%= stylist.name %>
+    </li>
+  <% end %>
+</ul>
+<% end %>
+
+<% if @clients.any? %>
+<h2>Clients</h2>
+<ul>
+  <% @clients.each do |client| %>
+    <li>
+      <%= client.name %>
+    </li>
+  <% end %>
+</ul>
+<% end %>
+
+<div class="btn-group" role="group">
+  <a href="/stylists/new" class="btn btn-primary btn-lg active" role="button">Add a Hair Stylist</a>
+</div>
+
+<div class="btn-group" role="group">
+  <a href="/clients/new" class="btn btn-primary btn-lg active" role="button">Add a Client</a>
+</div>
