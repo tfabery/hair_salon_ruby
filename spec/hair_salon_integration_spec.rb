@@ -23,3 +23,21 @@ describe('the root path', {type: :feature}) do
     expect(page).to have_content("Name")
   end
 end
+
+describe('stylist_form path', {type: :feature}) do
+  it "add stylist and shows the list of stylists" do
+    visit('/stylists/new')
+    fill_in('name', :with => 'Test Stylist')
+    click_button('Add Stylist')
+    expect(page).to have_content('Test Stylist')
+  end
+end
+
+describe('client_form path', {type: :feature}) do
+  it "add client and shows the list of clients" do
+    visit('/clients/new')
+    fill_in('name', :with => 'Test Client')
+    click_button('Add Client')
+    expect(page).to have_content('Test Client')
+  end
+end

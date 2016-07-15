@@ -22,5 +22,17 @@ get '/clients/new' do
 end
 
 post '/stylists' do
+  name = params['name']
+  Hair_stylist.new({name: name}).save
+  @clients = Client.all
+  @stylists = Hair_stylist.all
+  erb(:index)
+end
 
+post '/clients' do
+  name = params['name']
+  Client.new({name: name}).save
+  @clients = Client.all
+  @stylists = Hair_stylist.all
+  erb(:index)
 end
