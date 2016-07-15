@@ -62,13 +62,4 @@ describe 'Hair_stylist' do
       expect(Hair_stylist.all).to eq([])
     end
   end
-
-  describe '.find_by_hair_stylist_id' do
-    it "returns hair_stylists that has inputted hair_stylist_id" do
-      test_hair_stylist = Hair_stylist.new {name: 'Test'}
-      test_hair_stylist.save
-      DB.exec("UPDATE hair_stylists SET hair_stylist_id = 1 WHERE id = #{test_hair_stylist.id};")
-      expect(Hair_stylist.find_by_hair_stylist_id(1)).to eq(test_hair_stylist)
-    end
-  end
 end
