@@ -26,6 +26,15 @@ class Hair_stylist
     @id = result.first['id'].to_i
   end
 
+  def update (attributes)
+    @name = attributes.fetch(:name, @name)
+    DB.exec("UPDATE hair_stylists SET name = '#{@name}' WHERE id = #{@id};")
+  end
+
+  def delete
+    DB.exec("DELETE FROM hair_stylists WHERE id = #{@id};")
+  end
+
   def find_by_id (id)
     result = DB.exec("SELECT * FROM hair_stylists WHERE id = #{id}").first
     name = result['name']
