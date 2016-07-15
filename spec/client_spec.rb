@@ -61,6 +61,15 @@ describe 'Client' do
     end
   end
 
+  describe '#delete' do
+    it "deletes client from clients table" do
+      test_client = Client.new {name: 'Test'}
+      test_client.save
+      test_client.delete
+      expect(Client.all).to eq([])
+    end
+  end
+
   describe '.find_by_hair_stylist_id' do
     it "returns clients that has inputted hair_stylist_id" do
       test_client = Client.new {name: 'Test'}
