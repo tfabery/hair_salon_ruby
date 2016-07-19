@@ -14,7 +14,7 @@ _This webpage let's a user view/add/edit hair stylists and clients. User can als
 * "CREATE DATABASE hair_salon; 
 * \c hair_salon; 
 * CREATE TABLE hair_stylists (id serial PRIMARY KEY, name varchar); 
-* CREATE TABLE clients (id serial PRIMARY KEY, name varchar);" in psql
+* CREATE TABLE clients (id serial PRIMARY KEY, name varchar, hair_stylist_id int);" in psql
 * run "ruby app.rb" in terminal
 * open "localhost:4567" on a browser
 
