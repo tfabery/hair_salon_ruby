@@ -10,7 +10,11 @@ _This webpage let's a user view/add/edit hair stylists and clients. User can als
 ## Setup/Installation Requirements
 
 * clone repository from https://github.com/tfabery/hair_salon_ruby
-* create hair_salon database and hait_stylists and clients tables by running "CREATE DATABASE hair_salon; \c hair_salon; CREATE TABLE hair_stylists (id serial PRIMARY KEY, name varchar); CREATE TABLE clients (id serial PRIMARY KEY, name varchar);" in psql
+* create hair_salon database and hait_stylists and clients tables by running 
+* "CREATE DATABASE hair_salon; 
+* \c hair_salon; 
+* CREATE TABLE hair_stylists (id serial PRIMARY KEY, name varchar); 
+* CREATE TABLE clients (id serial PRIMARY KEY, name varchar);" in psql
 * run "ruby app.rb" in terminal
 * open "localhost:4567" on a browser
 
